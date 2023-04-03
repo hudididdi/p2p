@@ -38,7 +38,9 @@ class AlignedDataset(BaseDataset):
         """
         # read a image given a random integer index
         AB_path = self.AB_paths[index]
-        AB = Image.open(AB_path).convert('RGB')
+        AB = cv2.imread(AB_path)
+        AB = Image.fromarray(AB)
+#       AB = Image.open(AB_path).convert('RGB')
         # split AB image into A and B
         w, h = AB.size
         w2 = int(w / 2)
